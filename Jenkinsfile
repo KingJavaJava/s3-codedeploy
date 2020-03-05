@@ -1,11 +1,10 @@
 pipeline {
-  agent any
-  stages {
-    stage('Build') {
-      steps {
-        s3Upload 'cicd-group'
-      }
+    agent any 
+    stages {
+        stage('Lint HTML') {
+            steps {
+                sh 'tidy -q -e *.html'
+            }
+        }
     }
-
-  }
 }
